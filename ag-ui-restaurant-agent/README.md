@@ -63,15 +63,13 @@ python -m restaurant_finder_agent.main start_api
 
 This will start a FastAPI server at `http://localhost:8000/agent` that follows the AG-UI protocol.
 
-### Example Client
+**Alternative with poetry**:
 
-You can test the AG-UI integration with the included example client:
-
-```powershell
-python example_client.py
-```
-
-This client demonstrates how to connect to the AG-UI endpoint and process real-time events.
+   ```powershell
+   poetry install
+   poetry run uvicorn src.restaurant_finder_agent.api:app
+   ```
+   
 
 ## AG-UI Protocol Integration
 
@@ -98,12 +96,6 @@ restaurant_finder_agent/
   ├── crew.py             # CrewAI crew definition
   └── main.py             # Main entry point with start_api command
 
-docs/
-  ├── agui_integration_guide.md   # Detailed guide on AG-UI integration
-  ├── agui_integration_diagram.md # Architecture diagram (Mermaid)
-  └── example_web_client.html     # Example web frontend
-
-example_client.py         # Example Python client for testing
 ```
 
 ## Deploy

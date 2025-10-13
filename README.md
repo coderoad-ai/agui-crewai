@@ -42,9 +42,10 @@ For frontend setup instructions, see the [frontend README](./ag-ui-restaurant-fr
 ## Getting Started
 
 To run the complete application:
+0. **Set backend env vars**, see the [agent README](./ag-ui-restaurant-agent/README.md):
 
 1. **Set Up the Backend Agent**:
-
+ 
    ```powershell
    cd ag-ui-restaurant-agent
    poetry install
