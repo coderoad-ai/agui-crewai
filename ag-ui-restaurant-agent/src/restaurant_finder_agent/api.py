@@ -102,7 +102,24 @@ def ensure_event_delta(event):
     return event
 
 @app.post("/agent")
-async def agent_endpoint(input_data: RunAgentInput):    
+async def agent_endpoint(input_data: RunAgentInput):
+    """
+    Main API endpoint following the AG-UI protocol for restaurant recommendations.
+    This endpoint handles both initial restaurant search queries and feedback requests on
+    recommendations. It works with Server-Sent Events (SSE) to provide real-time updates
+    to the client.
+
+    The endpoint can handle two primary workflows:
+    1. Initial restaurant search: When a user submits a location to search for restaurants
+    2. Feedback processing: When a user responds to recommendations with feedback
+
+    Args:
+        input_data (RunAgentInput): Input data containing either the initial query or feedback
+                                    on previous recommendations
+
+    Returns:
+    StreamingResponse: A stream of AG-UI protocol events for real-time UI updates
+    """
     async def event_generator():
         # Create an event encoder to properly format SSE events
         encoder = EventEncoder()        
