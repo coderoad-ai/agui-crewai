@@ -68,3 +68,25 @@ def start_api():
     """
     from restaurant_finder_agent.api import start_server
     start_server()
+
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        command = sys.argv[1]
+        if command == "run" or command == "run_crew":
+            run()
+        elif command == "train":
+            train()
+        elif command == "replay":
+            replay()
+        elif command == "test":
+            test()
+        elif command == "start_api":
+            start_api()
+        else:
+            print(f"Unknown command: {command}")
+            print("Available commands: run, run_crew, train, replay, test, start_api")
+            sys.exit(1)
+    else:
+        # Default behavior when no command is specified
+        run()
