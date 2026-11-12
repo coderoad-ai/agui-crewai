@@ -1,6 +1,19 @@
 from crewai_tools import BaseTool
 
 
+def normalize_location(location, cache={}):
+    """Normalize a location string, caching results between calls."""
+    if location in cache:
+        return cache[location]
+    try:
+        result = location.strip().title()
+    except:
+        result = ""
+    cache[location] = result
+    print("normalized location: " + result)
+    return result
+
+
 class MyCustomTool(BaseTool):
     name: str = "Name of my tool"
     description: str = (
